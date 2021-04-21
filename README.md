@@ -6,9 +6,8 @@
 ## Features
  User can :
  - Create a new project
- - Create a new to do to the specific project
- - Update the weather
- - Delete the todo
+ - Create a new Weather app to the specific project
+ - Update the weather App
 
 ## Built with
 - Javascript
