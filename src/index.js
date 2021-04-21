@@ -123,4 +123,3 @@ const displayController = (() => {
   init('lagos');
 })();
 displayController();
-
