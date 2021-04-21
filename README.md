@@ -1,6 +1,6 @@
-# Todo app
+# Weather App
 
-> Todo list is a simple project for keeping track of your Todo's for different projects. by using this app you can create a new project and you can add your todos in specific project of your choice.
+> The Weather App project comes at the end of the Asynchronous Javascript and APIs section of the Javascript course in Microverse. It tests the knowledge of the student about asynchronous communication with promises or async/await and when to use them.(https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/weather-app)
 ![weather](./weather.png)
 
 ## Features
