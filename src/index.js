@@ -1,8 +1,32 @@
 const displayController = (() => {
-  
+  const content = document.getElementById('content');
+  content.innerHTML = `
+  <header>
+    <form action="#" id="form">
+      <div id="input-container">
+        <input type="text" placeholder="City" id="input-city" required/>
+        <button type="submit" id="submit">
+          <i class="fas fa-search" ></i>
+        </button>
+      </div>
+      <p id="invalid-city-text">* Not Found</p>
+    </form>
+  </header>
+  <main>
+    <h1 id="city-name"></h1>
+    <div id="weather-icon"></div>
+    <h3 id="temperature"></h3>
+    <p id="weather-text"></p>
+    <div id="group-1">
+      <p id="humidity"></p>
+      <p id="winds"></p>
+    </div>
+  </main>
+  `;
 
   const inputCity = document.getElementById('input-city');
   const invalidCityText = document.getElementById('invalid-city-text');
+  
   const form = document.getElementById('form');
 
   const convert = temp => {
@@ -23,6 +47,7 @@ const displayController = (() => {
       } else {
         let weatherData = await response.json().then(data => populate(data));
         invalidCityText.style.display = 'none';
+        return weatherData;
       }
     } catch (e) {
       console.log(e);
@@ -92,10 +117,11 @@ const displayController = (() => {
         { mode: 'cors' }
       );
       let weatherData = await response.json().then(data => populate(data));
+      return weatherData
     } catch (e) {
       console.log(e);
     }
   }
 
-  init('los angeles');
+  init('lagos');
 })();
