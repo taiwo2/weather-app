@@ -89,9 +89,7 @@ const displayController = (() => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=8d1c03ca974d24a85e482dd06b1f0a63
-      `,
-        { mode: 'cors' }
-      );
+      `, { mode: 'cors' });
       if (response.status === 404) {
         invalidCityText.style.display = 'block';
       } else {
@@ -103,19 +101,15 @@ const displayController = (() => {
       console.log(e);
     }
   }
-  apiCall();
-  
-  form.addEventListener('submit', apiCall);
 
+  form.addEventListener('submit', apiCall);
   // Initialize los angeles weather by default
   async function init(city) {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8d1c03ca974d24a85e482dd06b1f0a63
-      `,
-        { mode: 'cors' }
-      );
-      const weatherData = await response.json().then(data => populate(data));
+      `, { mode: 'cors' });
+      const weatherData = await response.json().then((data) => populate(data));
       return weatherData;
     } catch (e) {
       console.log(e);
