@@ -89,7 +89,7 @@ const displayController = (() => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=8d1c03ca974d24a85e482dd06b1f0a63
-      `, { mode: 'cors' }
+      `, { mode: 'cors' },
       );
       if (response.status === 404) {
         invalidCityText.style.display = 'block';
@@ -110,7 +110,7 @@ const displayController = (() => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8d1c03ca974d24a85e482dd06b1f0a63
-      `, { mode: 'cors' }
+      `, { mode: 'cors' },
       );
       const weatherData = await response.json().then((data) => populate(data));
       return weatherData;
@@ -122,3 +122,5 @@ const displayController = (() => {
 
   init('lagos');
 })();
+displayController();
+
