@@ -24,55 +24,6 @@ const displayController = (() => {
   </main>
   `;
 
-  const inputCity = document.getElementById('input-city');
-  const invalidCityText = document.getElementById('invalid-city-text');
-  const form = document.getElementById('form');
-
-  const convert = (temp) => {
-    const formula = parseInt(((temp - 273.15) * 9) / 5 + 32,10);
-    return formula;
-  };
-  const populate = (data) => {
-    const cityName = document.getElementById('city-name');
-    const weatherIcon = document.getElementById('weather-icon');
-    const temperature = document.getElementById('temperature');
-    const weatherText = document.getElementById('weather-text');
-    const humidity = document.getElementById('humidity');
-    const winds = document.getElementById('winds');
-
-    cityName.textContent = data.name;
-    temperature.textContent = `${convert(data.main.temp)}°`;
-    weatherText.textContent = data.weather[0].main;
-    humidity.textContent = `Humidity: ${data.main.humidity}%`;
-    winds.textContent = `Winds: ${data.wind.speed} meter/sec`;
-
-    for (let i = 0; i < conditions.length; i += 1) {
-      if (conditions[i].condition === data.weather[0].main) {
-        weatherIcon.innerHTML = conditions[i].icon;
-      }
-    }
-  };
-  
-  // Fetch api data
-  async function apiCall() {
-    try {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=8d1c03ca974d24a85e482dd06b1f0a63
-      `,
-        { mode: 'cors' }
-      );
-      if (response.status === 404) {
-        invalidCityText.style.display = 'block';
-      } else {
-        const weatherData = await response.json().then((data) => populate(data));
-        invalidCityText.style.display = 'none';
-        return weatherData;
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   const conditions = [
     {
       condition: 'Thunderstorm',
@@ -104,6 +55,56 @@ const displayController = (() => {
     },
   ];
 
+  const inputCity = document.getElementById('input-city');
+  const invalidCityText = document.getElementById('invalid-city-text');
+  const form = document.getElementById('form');
+  const convert = (temp) => {
+    const formula = parseInt(((temp - 273.15) * 9) / 5 + 32, 10);
+    return formula;
+  };
+
+  const populate = (data) => {
+    const cityName = document.getElementById('city-name');
+    const weatherIcon = document.getElementById('weather-icon');
+    const temperature = document.getElementById('temperature');
+    const weatherText = document.getElementById('weather-text');
+    const humidity = document.getElementById('humidity');
+    const winds = document.getElementById('winds');
+
+    cityName.textContent = data.name;
+    temperature.textContent = `${convert(data.main.temp)}°`;
+    weatherText.textContent = data.weather[0].main;
+    humidity.textContent = `Humidity: ${data.main.humidity}%`;
+    winds.textContent = `Winds: ${data.wind.speed} meter/sec`;
+
+    for (let i = 0; i < conditions.length; i += 1) {
+      if (conditions[i].condition === data.weather[0].main) {
+        weatherIcon.innerHTML = conditions[i].icon;
+      }
+    }
+  };
+
+  // Fetch api data
+  async function apiCall() {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=8d1c03ca974d24a85e482dd06b1f0a63
+      `,
+        { mode: 'cors' }
+      );
+      if (response.status === 404) {
+        invalidCityText.style.display = 'block';
+      } else {
+        const weatherData = await response.json().then((data) => populate(data));
+        invalidCityText.style.display = 'none';
+        return weatherData;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  apiCall();
+  
   form.addEventListener('submit', apiCall);
 
   // Initialize los angeles weather by default
