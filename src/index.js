@@ -10,7 +10,7 @@ const unitBtn = document.getElementById('unit-control');
 const warning = document.getElementById('warning');
 const cityName = cityDisplay.innerText.substr(0, cityDisplay.innerText.length - 3);
 
-async function getWeather(city ='lagos', unit = '°C') {
+async function getWeather(city = 'lagos', unit = '°C') {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=610141c99f975bba14f72033833cff4e`, { mode: 'cors' });
     const data = await response.json();
