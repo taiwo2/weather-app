@@ -10,41 +10,41 @@ const unitBtn = document.getElementById('unit-control');
 const warning = document.getElementById('warning');
 const cityName = cityDisplay.innerText.substr(0, cityDisplay.innerText.length - 3);
 
-async function getWeather(city='lagos', unit = '°C') {
+async function getWeather(city ='lagos', unit = '°C') {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=610141c99f975bba14f72033833cff4e`, { mode: 'cors' });
     const data = await response.json();
-     renderInfo(data, unit);
-  } catch(err) {
+    renderInfo(data, unit);
+  } catch (err) {
     warning.classList.add('show');
-      setTimeout(() => {
-      warning.classList.remove('show');
-      }, 1500);
-      renderInfo(cityName, unit);
+    setTimeout(() => {
+    warning.classList.remove('show');
+    }, 1500);
+    renderInfo(cityName, unit);
   }
 }
 
 window.addEventListener('load', () => {
-    getWeather();
-})
+  getWeather();
+});
 
-form.addEventListener('submit', (e)=>{
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const check = unitBtn.innerText=='°C'? '°F': '°C';
+  const check = unitBtn.innerText === '°C' ? '°F': '°C';
   getWeather(formInput.value, check);
   formInput.value = '';
-})
-unitBtn.addEventListener('click', ()=>{
+});
+unitBtn.addEventListener('click', () => {
   cityName = cityDisplay.innerText.substr(0, cityDisplay.innerText.length - 3);
   getWeather(cityName, unitBtn.innerText);
-    if (unitBtn.innerText === '°F') {
+  if (unitBtn.innerText === '°F') {
     unitBtn.innerText = '°C';
-    } else {
+  } else {
     unitBtn.innerText = '°F';
   }
 });
 
-function renderInfo (arg, unit) {
+function renderInfo(arg, unit) {
   cityDisplay.innerText = `${arg.name}, ${arg.sys.country}`;
   temp.innerText = `${tempConversion(unit, arg)} ${unit}`;
   des.innerText = arg.weather[0].main;
@@ -53,6 +53,6 @@ function renderInfo (arg, unit) {
   humidity.innerText = `${arg.main.humidity} %`;
 }
 
-function tempConversion (unit, arg) {
+function tempConversion(unit, arg) {
   return unit=='°C' ? Math.round(arg.main.temp) : Math.round(arg.main.temp * (9 / 5)) + 32;
 }

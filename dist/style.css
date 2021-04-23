@@ -147,8 +147,7 @@ button i {
   font-size: 30px;
 }
 
-input:focus, 
-  button:focus {
+input:focus button:focus {
   outline: none;
 }
 
@@ -160,14 +159,14 @@ input:focus,
   border: 3px solid white;
   padding: 5px 20px;
   background-color: red;
-  display: none ;
+  display: none;
 }
 
 .show {
   display: block !important;
 }
 
-@media(max-width: 800px) {
+@media (max-width: 800px) {
   body {
     display: flex;
     flex-direction: column;
@@ -175,5 +174,6 @@ input:focus,
 
   #content {
     margin-top: 20vh;
-  }  
+  }
+
 }
