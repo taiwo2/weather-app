@@ -1,4 +1,5 @@
 /* reset */
+
 * {
   padding: 0;
   margin: 0;
@@ -15,22 +16,6 @@ body {
   background-size: cover;
 }
 
-/* Form */
-#input-city {
-  padding: 5px;
-  font-size: 18px;
-  border: none;
-  border-bottom: 1px solid #f4f4f4;
-  outline: none;
-  background: none;
-  color: #f4f4f4;
-}
-
-::placeholder {
-  color: #f4f4f4;
-  opacity: 0.5;
-}
-
 #submit {
   font-size: 20px;
   cursor: pointer;
@@ -45,12 +30,6 @@ body {
   height: 40px;
 }
 
-#invalid-city-text {
-  display: none;
-  color: #f4f4f4;
-  padding: 10px 120px 0 0;
-}
-
 html *{
   margin: 0;
   font-family: sans-serif;
@@ -59,7 +38,7 @@ html *{
   padding: 0;
 }
 
-.tile{
+.tile {
   height: 300px;
   width: 500px;
   border: 5px solid white;
@@ -67,13 +46,13 @@ html *{
   margin: 30px;
 }
 
-#content h1{
+#content h1 {
   font-size: 40px;
   height: 100px;
   border-bottom: 5px solid white;
 }
 
-#weather-div{
+#weather-div {
   height: 100px;
 }
 
@@ -84,18 +63,18 @@ html *{
   align-items: center;
 }
 
-#weather-div h2{
+#weather-div h2 {
   border-right: 5px solid white;
   width: 200px;
   font-size: 60px;
 }
 
-#weather-div div{
+#weather-div div {
   width: 75px;
   border-right: 5px solid white;
 }
 
-#weather-div p{
+#weather-div p {
   width: 225px;
   font-size: 30px;
 }
@@ -105,7 +84,7 @@ html *{
   display: flex;
 }
 
-#sub-div span{
+#sub-div span {
   width: 50%;
   flex-direction: column;
   font-size: 30px;
@@ -128,13 +107,13 @@ form{
   background-color: aliceblue;
 }
 
-#change-div{
+#change-div {
   height: 100px;
   width: 200px;
   background-color: white;
 }
 
-#searchbar{
+#searchbar {
   box-sizing: border-box;
   width: 80%;
   height: 100%;
@@ -150,13 +129,13 @@ button[type="submit"]{
   background-color: white;
 }
 
-button i{
+button i {
   color: gray;
   font-size: 20px;
   background-color: transparent;
 }
 
-#unit-control{
+#unit-control {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -172,7 +151,7 @@ input:focus, button:focus{
   outline: none;
 }
 
-.warning{
+.warning {
   position: absolute;
   top: 10vh;
   font-size: 20px;
@@ -183,16 +162,17 @@ input:focus, button:focus{
   display: none ;
 }
 
-.show{
+.show {
   display: block !important;
 }
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
   body{
       display: flex;
       flex-direction: column;
   }
-  #content{
+
+  #content {
       margin-top: 20vh;
   }  
 }

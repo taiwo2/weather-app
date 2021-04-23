@@ -9,7 +9,6 @@ const formInput = document.getElementById('searchbar');
 const unitBtn = document.getElementById('unit-control');
 const warning = document.getElementById('warning')
 const cityName =  cityDisplay.innerText.substr(0, cityDisplay.innerText.length-3);
-const windUnit;
 
 async function getWeather(city='lagos', unit='°C'){
   try{
