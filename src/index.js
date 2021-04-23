@@ -10,6 +10,10 @@ const unitBtn = document.getElementById('unit-control');
 const warning = document.getElementById('warning');
 const cityName = cityDisplay.innerText.substr(0, cityDisplay.innerText.length - 3);
 
+function tempConversion(unit, arg) {
+  return unit === '°C' ? Math.round(arg.main.temp) : Math.round(arg.main.temp * (9 / 5)) + 32;
+}
+
 function renderInfo(arg, unit) {
   cityDisplay.innerText = `${arg.name}, ${arg.sys.country}`;
   temp.innerText = `${tempConversion(unit, arg)} ${unit}`;
@@ -17,10 +21,6 @@ function renderInfo(arg, unit) {
   icon.style.background = `url(https://openweathermap.org/img/wn/${arg.weather[0].icon}@2x.png) center no-repeat, linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5))`;
   windspeed.innerText = `${arg.wind.speed} mph`;
   humidity.innerText = `${arg.main.humidity} %`;
-}
-
-function tempConversion(unit, arg) {
-  return unit === '°C' ? Math.round(arg.main.temp) : Math.round(arg.main.temp * (9 / 5)) + 32;
 }
 
 async function getWeather(city = 'lagos', unit = '°C') {
@@ -56,4 +56,3 @@ unitBtn.addEventListener('click', () => {
     unitBtn.innerText = '°F';
   }
 });
-
