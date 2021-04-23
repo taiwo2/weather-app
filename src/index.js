@@ -1,28 +1,13 @@
-const displayController = (() => {
-  const content = document.getElementById('content');
-  content.innerHTML = `
-  <header>
-    <form action="#" id="form">
-      <div id="input-container">
-        <input type="text" placeholder="City" id="input-city" required/>
-        <button type="submit" id="submit">
-          <i class="fas fa-search" ></i>
-        </button>
-      </div>
-      <p id="invalid-city-text">* Not Found</p>
-    </form>
-  </header>
-  <main>
-    <h1 id="city-name"></h1>
-    <div id="weather-icon"></div>
-    <h3 id="temperature"></h3>
-    <p id="weather-text"></p>
-    <div id="group-1">
-      <p id="humidity"></p>
-      <p id="winds"></p>
-    </div>
-  </main>
-  `;
+var cityDisplay = document.getElementById("location");
+var temp = document.getElementById("temp");
+var icon = document.getElementById("icon");
+var des = document.getElementById("des");
+var humidity = document.getElementById("humidity");
+var windspeed = document.getElementById("windspeed");
+var form = document.querySelector("form");
+var formInput = document.getElementById("searchbar");
+var unitBtn = document.getElementById("unit-control");
+var warning = document.getElementById("warning");
 
   const conditions = [
     {
