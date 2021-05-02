@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+</head>
+<body class="flex">
+  
+    <p id="warning" class="warning">error: can't find any information related to the search</p>
+    <div id="content" class="tile">
+        <h1 class="flex" id="location"></h1>
+        <div id="weather-div" class="flex">
+            <h2 id="temp"></h2>
+            <div class="icon" id="icon"></div>
+            <p id="des"></p>
+        </div>
+        <div id="sub-div">
+            <span id="humidity-tab" class="flex">
+                <p>HUMIDITY</p>
+                <p id="humidity"></p>
+            </span>
+            <span id="wind-tab" class="flex">
+                <p>WIND SPEED</p>
+                <p id="windspeed"></p>
+            </span>
+        </div>
+    </div>
+    <div class="tile" id="change-div">
+        <form class="flex">
+            <input type="text" required placeholder="Search City" id="searchbar" autocomplete="off">
+            <button type="submit" ><i class="fas fa-search"></i></button>
+        </form>
+        <button id="unit-control">°F</button>
+      </div>
+  <script src="main.js"></script>
+</body>
+</html>
